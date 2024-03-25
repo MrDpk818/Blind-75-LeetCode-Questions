@@ -1,0 +1,19 @@
+var isValid = function(s) {
+    let abc = [...s];
+    let stack = [];
+    for(let i=0;i<abc.length;i++){
+        if(abc[i]=="("){
+            stack.push(")");
+        }
+        else if(abc[i]=="["){
+            stack.push("]");
+        }
+        else if(abc[i]=="{"){
+            stack.push("}");
+        }
+        else if (stack.pop()!==abc[i]){
+            return false;
+        }
+    }
+    return !stack.length;
+};
